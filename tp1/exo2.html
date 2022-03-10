@@ -7,6 +7,15 @@
     <title>Document</title>
   </head>
   <body>
-    <script src="app.js"></script>
+    <p>Texte 1</p>
+    <p>Texte 2</p>
+    <p>Texte 3</p>
+
+    <script>
+      let p = document.querySelectorAll("p");
+      p[0].style.fontWeight = "bold";
+      p[1].style.fontStyle = "italic";
+      p[2].style.textTransform = "uppercase";
+    </script>
   </body>
 </html>

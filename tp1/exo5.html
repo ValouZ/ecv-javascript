@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="root">
+      <ul id="nav-access" class="a11y-nav">
+        <li><a id="skip-main" href="#content">Skip to main content</a></li>
+      </ul>
+      <div class="mdn-cta-container">
+        <div id="mdn-cta-content" class="mdn-cta-content">
+          <div id="redesign_announcement" class="mdn-cta-content-container">
+            <p class="mdn-cta-copy">
+              ✨ <a href="https://hacks.mozilla.org/2022/02/a-new-year-a-new-mdn/" target="_blank" rel="noopener noreferrer">Learn more</a> about MDN
+              Web Docs' new design.
+            </p>
+          </div>
+        </div>
+        <div class="mdn-cta-controls">
+          <button type="button" id="mdn-cta-close" class="mdn-cta-close" aria-label="Close banner">
+            <svg class="icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img">
+              <g fill="currentColor" transform="rotate(-45 50 50)">
+                <rect height="121.7" rx="6.76" width="13.52" x="43.24" y="-10.85"></rect>
+                <rect height="13.52" rx="6.76" width="121.7" x="-10.85" y="43.24"></rect>
+              </g>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="page-wrapper category-home standard-page">
+        <header class="top-navigation dark">
+          <div class="container">
+            <div class="top-navigation-wrap">
+              <a href="/fr/" class="logo" aria-label="MDN homepage"
+                ><svg
+                  id="mdn-logo"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  x="0px"
+                  y="0px"
+                  viewBox="0 0 361 104.2"
+                  xml:space="preserve"
+                >
+                  <style type="text/css">
+                    .logo-m {
+                      fill: var(--text-link);
+                    }
+                    .logo-text {
+                      fill: var(--text-primary);
+                    }
+                  </style>
+                  <g class="logo-m">
+                    <path d="M40.3,0L11.7,92.1H0L28.5,0H40.3z"></path>
+                    <path d="M50.7,0v92.1H40.3V0H50.7z"></path>
+                    <path d="M101.4,0v92.1H91V0H101.4z"></path>
+                    <path d="M91,0L62.5,92.1H50.8L79.3,0H91z"></path>
+                    <path d="M294,95.4h67v8.8h-67V95.4z"></path>
+                  </g>
+                  <g class="logo-text">
+                    <path
+                      d="M198.7,72.8h-17.1v-5.5h3.8V51.5c0-3.7-0.7-6.3-2.1-7.9c-1.4-1.6-3.3-2.3-5.7-2.3c-3.2,0-5.6,1.1-7.2,3.4 s-2.4,4.6-2.5,6.9v15.6h6v5.5h-17.1v-5.5h3.8V51.5c0-3.8-0.7-6.4-2.1-7.9c-1.4-1.5-3.3-2.3-5.6-2.3c-3.2,0-5.5,1.1-7.2,3.3 c-1.6,2.2-2.4,4.5-2.5,6.9v15.8h6.9v5.5h-20.2v-5.5h6V42h-6.1v-5.6h13.4v6.4c1.2-2.1,2.7-3.8,4.7-5.2c2-1.3,4.4-2,7.3-2 c2.8,0,5.3,0.7,7.5,2.1c2.2,1.4,3.7,3.5,4.5,6.4c1.1-2.5,2.7-4.5,4.9-6.1c2.2-1.6,4.8-2.4,7.9-2.4c3.5,0,6.5,1.1,8.9,3.3 c2.4,2.2,3.7,5.6,3.7,10.2v18.2h6.1V72.8z"
+                    ></path>
+                    <path
+                      d="M241.2,72.8h-13.2v-7.2c-1.2,2.2-2.8,4.1-4.9,5.6c-2.1,1.6-4.8,2.4-8.3,2.4c-4.8,0-8.7-1.6-11.6-4.9 c-2.9-3.2-4.3-7.7-4.3-13.3c0-5,1.3-9.6,4-13.7c2.6-4.1,6.9-6.2,12.8-6.2c5.7,0,9.8,2.2,12.3,6.5V22.3h-8.6v-5.6h15.8v50.6h6 V72.8z M227.9,56v-4.4c-0.1-3-1.2-5.5-3.2-7.3c-2-1.8-4.4-2.8-7.2-2.8c-3.6,0-6.3,1.3-8.2,3.9c-1.9,2.6-2.8,5.8-2.8,9.6 c0,4.1,1,7.3,3,9.5c2,2.2,4.5,3.3,7.4,3.3c3.2,0,5.8-1.3,7.8-3.8C226.8,61.4,227.8,58.7,227.9,56z"
+                    ></path>
+                    <path
+                      d="M286.4,72.8h-19.3v-5.5h6V51.5c0-3.7-0.7-6.3-2.2-7.9c-1.4-1.6-3.4-2.3-5.7-2.3c-3.1,0-5.6,1-7.4,3c-1.8,2-2.8,4.4-2.9,7 v15.9h6v5.5h-19.3v-5.5h6V42h-6.2v-5.6h13.6v6.2c2.6-4.6,6.8-6.9,12.7-6.9c3.6,0,6.7,1.1,9.2,3.3c2.5,2.2,3.7,5.6,3.7,10.2v18.2 h6V72.8z"
+                    ></path>
+                  </g></svg></a
+              ><button
+                aria-expanded="false"
+                aria-haspopup="menu"
+                aria-label="Open main menu"
+                title="Open main menu"
+                type="button"
+                class="button action has-icon main-menu-toggle"
+              >
+                <span class="button-wrap"><span class="icon icon-menu"></span><span class="visually-hidden">Open main menu</span></span>
+              </button>
+            </div>
+            <div class="top-navigation-main">
+              <nav class="main-nav" aria-label="Main menu">
+                <ul class="main-menu">
+                  <li class="top-level-entry-container">
+                    <button type="button" id="references-button" class="top-level-entry menu-toggle" aria-haspopup="menu">References</button
+                    ><a class="top-level-entry" href="/fr/docs/Web/">References</a>
+                    <ul class="submenu references hidden" role="menu" aria-labelledby="references-button">
+                      <li role="none" class="html-link-container">
+                        <a href="/fr/docs/Web/HTML" class="submenu-item" role="menuitem"
+                          ><div class="submenu-icon html"></div>
+                          <div class="submenu-content-container">
+                            <div class="submenu-item-heading">HTML</div>
+                            <p class="submenu-item-description">Structure of content on the web</p>
+                          </div></a
+                        >
+                      </li>
+                      <li role="none" class="css-link-container">
+                        <a href="/fr/docs/Web/CSS" class="submenu-item" role="menuitem"
+                          ><div class="submenu-icon css"></div>
+                          <div class="submenu-content-container">
+                            <div class="submenu-item-heading">CSS</div>
+                            <p class="submenu-item-description">Code used to describe document style</p>
+                          </div></a
+                        >
+                      </li>
+                      <li role="none" class="javascript-link-container">
+                        <a href="/fr/docs/Web/JavaScript" class="submenu-item" role="menuitem"
+                          ><div class="submenu-icon javascript"></div>
+                          <div class="submenu-content-container">
+                            <div class="submenu-item-heading">JavaScript</div>
+                            <p class="submenu-item-description">General-purpose scripting language</p>
+                          </div></a
+                        >
+                      </li>
+                      <li role="none" class="http-link-container">
+                        <a href="/fr/docs/Web/HTTP" class="submenu-item" role="menuitem"
+                          ><div class="submenu-icon http"></div>
+                          <div class="submenu-content-container">
+                            <div class="submenu-item-heading">HTTP</div>
+                            <p class="submenu-item-description">Protocol for transmitting web resources</p>
+                          </div></a
+                        >
+                      </li>
+                      <li role="none" class="apis-link-container">
+                        <a href="/fr/docs/Web/API" class="submenu-item" role="menuitem"
+                          ><div class="submenu-icon apis"></div>
+                          <div class="submenu-content-container">
+                            <div class="submenu-item-heading">Web APIs</div>
+                            <p class="submenu-item-description">Interfaces for building web applications</p>
+                          </div></a
+                        >
+                      </li>
+                      <li role="none" class="apis-link-container">
+                        <a href="/fr/docs/Web/" class="submenu-item" role="menuitem"
+                          ><div class="submenu-icon"></div>
+                          <div class="submenu-content-container">
+                            <div class="submenu-item-heading">Web Technology</div>
+                            <p class="submenu-item-description">Web technology reference for developers</p>
+                          </div></a
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                  <li class="top-level-entry-container">
+                    <button type="button" id="guides-button" class="top-level-entry menu-toggle" aria-haspopup="menu">Guides</button
+                    ><a class="top-level-entry" href="/fr/docs/Learn/">Guides</a>
+                    <ul class="submenu guides hidden" role="menu" aria-labelledby="guides-button">
+                      <li role="none" class="apis-link-container">
+                        <a href="/fr/docs/Learn" class="submenu-item" role="menuitem"
+                          ><div class="submenu-icon learn"></div>
+                          <div class="submenu-content-container">
+                            <div class="submenu-item-heading">MDN Learning Area</div>
+                            <p class="submenu-item-description">Learn web development</p>
+                          </div></a
+                        >
+                      </li>
+                      <li role="none" class="html-link-container">
+                        <a href="/fr/docs/Learn/HTML" class="submenu-item" role="menuitem"
+                          ><div class="submenu-icon html"></div>
+                          <div class="submenu-content-container">
+                            <div class="submenu-item-heading">HTML</div>
+                            <p class="submenu-item-description">Learn to structure web content with HTML</p>
+                          </div></a
+                        >
+                      </li>
+                      <li role="none" class="css-link-container">
+                        <a href="/fr/docs/Learn/CSS" class="submenu-item" role="menuitem"
+                          ><div class="submenu-icon css"></div>
+                          <div class="submenu-content-container">
+                            <div class="submenu-item-heading">CSS</div>
+                            <p class="submenu-item-description">Learn to style content using CSS</p>
+                          </div></a
+                        >
+                      </li>
+                      <li role="none" class="javascript-link-container">
+                        <a href="/fr/docs/Learn/JavaScript" class="submenu-item" role="menuitem"
+                          ><div class="submenu-icon javascript"></div>
+                          <div class="submenu-content-container">
+                            <div class="submenu-item-heading">JavaScript</div>
+                            <p class="submenu-item-description">Learn to run scripts in the browser</p>
+                          </div></a
+                        >
+                      </li>
+                      <li role="none" class="undefined">
+                        <a href="/fr/docs/Web/Accessibility" class="submenu-item" role="menuitem"
+                          ><div class="submenu-icon"></div>
+                          <div class="submenu-content-container">
+                            <div class="submenu-item-heading">Accessibility</div>
+                            <p class="submenu-item-description">Learn to make the web accessible to all</p>
+                          </div></a
+                        >
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </nav>
+              <div class="header-search">
+                <form
+                  action="/fr/search"
+                  role="search"
+                  aria-haspopup="listbox"
+                  aria-owns="downshift-0-menu"
+                  aria-expanded="false"
+                  class="search-form search-widget"
+                  id="top-nav-search-form"
+                >
+                  <label for="top-nav-search-q" class="visually-hidden">Search MDN</label
+                  ><input
+                    id="top-nav-search-q"
+                    aria-autocomplete="list"
+                    aria-controls="downshift-0-menu"
+                    aria-labelledby="downshift-0-label"
+                    autocomplete="off"
+                    type="search"
+                    class="search-input-field"
+                    name="q"
+                    placeholder="   "
+                    required=""
+                    value=""
+                  /><button type="submit" class="button action has-icon search-button">
+                    <span class="button-wrap"><span class="icon icon-search"></span><span class="visually-hidden">Search</span></span></button
+                  ><button type="button" class="button action has-icon close-search-button">
+                    <span class="button-wrap"><span class="icon icon-cancel"></span><span class="visually-hidden">Close search</span></span>
+                  </button>
+                  <div id="downshift-0-menu" role="listbox" aria-labelledby="downshift-0-label"></div>
+                </form>
+              </div>
+              <div class="theme-toggle">
+                <span class="icon icon-sun-fill"></span
+                ><label class="switch"
+                  ><span class="visually-hidden">toggle theme to light mode</span><input type="checkbox" name="themeToggle" checked="" /><span
+                    class="slider"
+                  ></span></label
+                ><span class="icon icon-moon-fill"></span>
+              </div>
+              <button type="button" class="button action has-icon toggle-search-button">
+                <span class="button-wrap"><span class="icon icon-search"></span><span class="visually-hidden">Show search</span></span>
+              </button>
+            </div>
+          </div>
+        </header>
+        <main id="content" role="main">
+          <div class="homepage mdn-ui-body-m">
+            <div class="homepage-hero dark">
+              <section>
+                <h1>
+                  Resources for <u>Developers</u>,<br />
+                  by Developers
+                </h1>
+                <p>Documenting web technologies, including CSS, HTML, and JavaScript, since 2005.</p>
+                <div class="header-search">
+                  <form
+                    action="/fr/search"
+                    role="search"
+                    aria-haspopup="listbox"
+                    aria-owns="downshift-1-menu"
+                    aria-expanded="false"
+                    class="search-form search-widget"
+                    id="hp-search-form"
+                  >
+                    <label for="hp-search-q" class="visually-hidden">Search MDN</label
+                    ><input
+                      id="hp-search-q"
+                      aria-autocomplete="list"
+                      aria-controls="downshift-1-menu"
+                      aria-labelledby="downshift-1-label"
+                      autocomplete="off"
+                      type="search"
+                      class="search-input-field"
+                      name="q"
+                      placeholder="   "
+                      required=""
+                      value=""
+                    /><button type="submit" class="button action has-icon search-button">
+                      <span class="button-wrap"><span class="icon icon-search"></span><span class="visually-hidden">Search</span></span></button
+                    ><button type="button" class="button action has-icon close-search-button">
+                      <span class="button-wrap"><span class="icon icon-cancel"></span><span class="visually-hidden">Close search</span></span>
+                    </button>
+                    <div id="downshift-1-menu" role="listbox" aria-labelledby="downshift-1-label"></div>
+                  </form>
+                </div>
+              </section>
+              <div class="mandala-container homepage-hero-bg">
+                <div class="mandala-translate mandala-rotate">
+                  <svg width="675" height="675" viewBox="0 0 675 675" fill="none" xmlns="http://www.w3.org/2000/svg" class="mandala">
+                    <title>Mandala</title>
+                    <defs>
+                      <path d="M337.5,337.5 m-320,0 a320,320 0 1,1 640,0 a320,320 0 1,1 -640,0" id="circle1"></path>
+                      <path d="M337.5,337.5 m-280,0 a280,280 0 1,1 560,0 a280,280 0 1,1 -560,0" id="circle2"></path>
+                      <path d="M337.5,337.5 m-240,0 a240,240 0 1,1 480,0 a240,240 0 1,1 -480,0" id="circle3"></path>
+                      <path d="M337.5,337.5 m-200,0 a200,200 0 1,1 400,0 a200,200 0 1,1 -400,0" id="circle4"></path>
+                      <path d="M337.5,337.5 m-160,0 a160,160 0 1,1 320,0 a160,160 0 1,1 -320,0" id="circle5"></path>
+                    </defs>
+                    <text class="mandala-accent-1" dy="70" textLength="2010">
+                      <textPath textLength="2010" href="#circle1">
+                        &nbsp;&nbsp;&nbsp;/
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        &nbsp;&nbsp;&nbsp;/
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        &nbsp;&nbsp;&nbsp;/
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        &nbsp;&nbsp;&nbsp;/
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        &nbsp;&nbsp;&nbsp;/
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        &nbsp;&nbsp;&nbsp;/
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        &nbsp;&nbsp;&nbsp;/
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                      </textPath>
+                    </text>
+                    <text class="mandala-accent-2" dy="70" textLength="1760">
+                      <textPath textLength="1760" href="#circle2">
+                        &nbsp;&nbsp;+
+                        <tspan>+</tspan>
+                        +
+                        <tspan>+</tspan>
+                        +
+                        <tspan>+</tspan>
+                        &nbsp;&nbsp;+
+                        <tspan>+</tspan>
+                        +
+                        <tspan>+</tspan>
+                        +
+                        <tspan>+</tspan>
+                        &nbsp;&nbsp;+
+                        <tspan>+</tspan>
+                        +
+                        <tspan>+</tspan>
+                        +
+                        <tspan>+</tspan>
+                        &nbsp;&nbsp;+
+                        <tspan>+</tspan>
+                        +
+                        <tspan>+</tspan>
+                        +
+                        <tspan>+</tspan>
+                        &nbsp;&nbsp;+
+                        <tspan>+</tspan>
+                        +
+                        <tspan>+</tspan>
+                        +
+                        <tspan>+</tspan>
+                        &nbsp;&nbsp;+
+                        <tspan>+</tspan>
+                        +
+                        <tspan>+</tspan>
+                        +
+                        <tspan>+</tspan>
+                        &nbsp;&nbsp;+
+                        <tspan>+</tspan>
+                        +
+                        <tspan>+</tspan>
+                        +
+                        <tspan>+</tspan>
+                      </textPath>
+                    </text>
+                    <text class="mandala-accent-3" dy="70" textLength="1507">
+                      <textPath textLength="1507" href="#circle3">
+                        <tspan>{</tspan>
+                        {
+                        <tspan>{</tspan>
+                        {&nbsp;
+                        <tspan>}</tspan>
+                        }
+                        <tspan>}</tspan>
+                        }&nbsp;&nbsp;
+                        <tspan>{</tspan>
+                        {
+                        <tspan>{</tspan>
+                        {&nbsp;
+                        <tspan>}</tspan>
+                        }
+                        <tspan>}</tspan>
+                        }&nbsp;&nbsp;
+                        <tspan>{</tspan>
+                        {
+                        <tspan>{</tspan>
+                        {&nbsp;
+                        <tspan>}</tspan>
+                        }
+                        <tspan>}</tspan>
+                        }&nbsp;&nbsp;
+                        <tspan>{</tspan>
+                        {
+                        <tspan>{</tspan>
+                        {&nbsp;
+                        <tspan>}</tspan>
+                        }
+                        <tspan>}</tspan>
+                        }&nbsp;&nbsp;
+                        <tspan>{</tspan>
+                        {
+                        <tspan>{</tspan>
+                        {&nbsp;
+                        <tspan>}</tspan>
+                        }
+                        <tspan>}</tspan>
+                        }&nbsp;&nbsp;
+                        <tspan>{</tspan>
+                        {
+                        <tspan>{</tspan>
+                        {&nbsp;
+                        <tspan>}</tspan>
+                        }
+                        <tspan>}</tspan>
+                        }&nbsp;&nbsp;
+                      </textPath>
+                    </text>
+                    <text class="mandala-accent-4" dy="70" textLength="1257">
+                      <textPath textLength="1257" href="#circle4">
+                        &nbsp;&nbsp;&nbsp;../../ &nbsp;&nbsp;&nbsp;../../ &nbsp;&nbsp;&nbsp;../../ &nbsp;&nbsp;&nbsp;../../ &nbsp;&nbsp;&nbsp;../../
+                        &nbsp;&nbsp;&nbsp;../../ &nbsp;&nbsp;&nbsp;../../
+                      </textPath>
+                    </text>
+                    <text class="mandala-accent-5" dy="70" textLength="1005">
+                      <textPath textLength="1005" href="#circle5">
+                        <tspan>&lt;&gt;</tspan>
+                        &lt;/&gt;
+                        <tspan>&lt;&gt;</tspan>
+                        &lt;/&gt;
+                        <tspan>&lt;&gt;</tspan>
+                        &lt;/&gt;
+                        <tspan>&lt;&gt;</tspan>
+                        &lt;/&gt;
+                        <tspan>&lt;&gt;</tspan>
+                        &lt;/&gt;
+                        <tspan>&lt;&gt;</tspan>
+                        &lt;/&gt;
+                        <tspan>&lt;&gt;</tspan>
+                        &lt;/&gt;
+                        <tspan>&lt;&gt;</tspan>
+                        &lt;/&gt;
+                        <tspan>&lt;&gt;</tspan>
+                        &lt;/&gt;
+                        <tspan>&lt;&gt;</tspan>
+                        &lt;/&gt;
+                        <tspan>&lt;&gt;</tspan>
+                        &lt;/&gt;
+                        <tspan>&lt;&gt;</tspan>
+                        &lt;/&gt;
+                        <tspan>&lt;&gt;</tspan>
+                        &lt;/&gt;
+                        <tspan>&lt;&gt;</tspan>
+                        &lt;/&gt;
+                        <tspan>&lt;&gt;</tspan>
+                        &lt;/&gt;
+                        <tspan>&lt;&gt;</tspan>
+                        &lt;/&gt;
+                      </textPath>
+                    </text>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="featured-articles">
+              <h2 class="mdn-ui-emphasis-l">Featured Articles</h2>
+              <div class="tile-container">
+                <div class="article-tile">
+                  <a href="/fr/docs/Web/HTML" class="tile-tag">HTML</a
+                  ><a href="/fr/docs/Web/HTML/Element/dialog" class="tile-title expand-this-link">&lt;dialog&gt;: The Dialog element</a>
+                  <p>
+                    The &lt;dialog&gt; HTML element represents a dialog box or other interactive component, such as a dismissible alert, inspector, or
+                    subwindow.
+                  </p>
+                </div>
+                <div class="article-tile">
+                  <a href="/fr/docs/Web/CSS" class="tile-tag">CSS</a
+                  ><a href="/fr/docs/Web/CSS/color-scheme" class="tile-title expand-this-link">color-scheme</a>
+                  <p>
+                    The color-scheme CSS property allows an element to indicate which color schemes it can comfortably be rendered in.<br />Common
+                    choices for operating system color schemes are "light" and "dark", or "day mode" and "night mode". When a user selects one of
+                    these color schemes, the operating system makes adjustments to the user interface. This includes form controls, scrollbars, and
+                    the used values of CSS system colors.
+                  </p>
+                </div>
+                <div class="article-tile">
+                  <a href="/fr/docs/Web/API" class="tile-tag">Web APIs</a
+                  ><a href="/fr/docs/Web/API/Canvas_API/Tutorial" class="tile-title expand-this-link">Canvas tutorial</a>
+                  <p>
+                    This tutorial describes how to use the &lt;canvas&gt; element to draw 2D graphics, starting with the basics. The examples provided
+                    should give you some clear ideas about what you can do with canvas, and will provide code snippets that may get you started in
+                    building your own content.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <section class="recent-contributions">
+              <h2 class="mdn-ui-emphasis-l">Recent contributions</h2>
+              <ul class="contribution-list">
+                <li class="request-item">
+                  <p class="request-title">
+                    <a href="https://github.com/mdn/content/pull/13639">Improve the fallback example for :focus-visible </a
+                    ><span><a class="request-repo" href="https://github.com/mdn/content">mdn/content</a></span>
+                  </p>
+                  <span class="request-date">a day ago</span>
+                </li>
+                <li class="request-item">
+                  <p class="request-title">
+                    <a href="https://github.com/mdn/content/pull/13651">Move "Browser compatibility" to the end of the article Issue#13650 </a
+                    ><span><a class="request-repo" href="https://github.com/mdn/content">mdn/content</a></span>
+                  </p>
+                  <span class="request-date">a day ago</span>
+                </li>
+                <li class="request-item">
+                  <p class="request-title">
+                    <a href="https://github.com/mdn/content/pull/13672">fix typo </a
+                    ><span><a class="request-repo" href="https://github.com/mdn/content">mdn/content</a></span>
+                  </p>
+                  <span class="request-date">a day ago</span>
+                </li>
+                <li class="request-item">
+                  <p class="request-title">
+                    <a href="https://github.com/mdn/content/pull/13657">Fix broken link </a
+                    ><span><a class="request-repo" href="https://github.com/mdn/content">mdn/content</a></span>
+                  </p>
+                  <span class="request-date">2 days ago</span>
+                </li>
+                <li class="request-item">
+                  <p class="request-title">
+                    <a href="https://github.com/mdn/content/pull/13659">Update `color-mix()` article to correct outdated information </a
+                    ><span><a class="request-repo" href="https://github.com/mdn/content">mdn/content</a></span>
+                  </p>
+                  <span class="request-date">2 days ago</span>
+                </li>
+                <li class="request-item">
+                  <p class="request-title">
+                    <a href="https://github.com/mdn/content/pull/13665">Update index.md where content was in wrong order </a
+                    ><span><a class="request-repo" href="https://github.com/mdn/content">mdn/content</a></span>
+                  </p>
+                  <span class="request-date">2 days ago</span>
+                </li>
+                <li class="request-item">
+                  <p class="request-title">
+                    <a href="https://github.com/mdn/content/pull/13666">fixed typo </a
+                    ><span><a class="request-repo" href="https://github.com/mdn/content">mdn/content</a></span>
+                  </p>
+                  <span class="request-date">2 days ago</span>
+                </li>
+                <li class="request-item">
+                  <p class="request-title">
+                    <a href="https://github.com/mdn/content/pull/13652">Bump @mdn/yari from 0.7.6 to 0.7.13 </a
+                    ><span><a class="request-repo" href="https://github.com/mdn/content">mdn/content</a></span>
+                  </p>
+                  <span class="request-date">2 days ago</span>
+                </li>
+                <li class="request-item">
+                  <p class="request-title">
+                    <a href="https://github.com/mdn/content/pull/13649">Add missing default value for 'rows' attribute for &lt;textarea&gt; </a
+                    ><span><a class="request-repo" href="https://github.com/mdn/content">mdn/content</a></span>
+                  </p>
+                  <span class="request-date">2 days ago</span>
+                </li>
+                <li class="request-item">
+                  <p class="request-title">
+                    <a href="https://github.com/mdn/content/pull/13594">Adapt api.RTCDTMFSender.ontonechange to new events structure </a
+                    ><span><a class="request-repo" href="https://github.com/mdn/content">mdn/content</a></span>
+                  </p>
+                  <span class="request-date">2 days ago</span>
+                </li>
+              </ul>
+            </section>
+            <div class="contributor-spotlight dark">
+              <div class="wrapper">
+                <div class="text-col">
+                  <h2 class="mdn-ui-emphasis-l">Contributor Spotlight</h2>
+                  <a class="contributor-name" href="community/spotlight/tanner-dolby">Tanner Dolby</a>
+                  <blockquote>
+                    <span class="icon icon-quote"></span>I contribute to MDN because our community is a welcoming and exciting group of people who are
+                    passionate about helping build a better Web.
+                  </blockquote>
+                  <a href="/en-US/community" class="spotlight-cta">Get involved →</a>
+                </div>
+                <figure class="contributor-graphic">
+                  <img src="/assets/mdn_contributor.png" alt="Tiled Mozilla Logo" width="523" height="323" />
+                </figure>
+              </div>
+              <div class="mandala-container">
+                <div class="mandala-translate">
+                  <svg width="675" height="675" viewBox="0 0 675 675" fill="none" xmlns="http://www.w3.org/2000/svg" class="mandala">
+                    <title>Mandala</title>
+                    <defs>
+                      <path d="M337.5,337.5 m-320,0 a320,320 0 1,1 640,0 a320,320 0 1,1 -640,0" id="circle1"></path>
+                      <path d="M337.5,337.5 m-280,0 a280,280 0 1,1 560,0 a280,280 0 1,1 -560,0" id="circle2"></path>
+                      <path d="M337.5,337.5 m-240,0 a240,240 0 1,1 480,0 a240,240 0 1,1 -480,0" id="circle3"></path>
+                      <path d="M337.5,337.5 m-200,0 a200,200 0 1,1 400,0 a200,200 0 1,1 -400,0" id="circle4"></path>
+                      <path d="M337.5,337.5 m-160,0 a160,160 0 1,1 320,0 a160,160 0 1,1 -320,0" id="circle5"></path>
+                    </defs>
+                    <text class="mandala-accent-1" dy="70" textLength="2010">
+                      <textPath textLength="2010" href="#circle1">
+                        &nbsp;&nbsp;&nbsp;/
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        &nbsp;&nbsp;&nbsp;/
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        &nbsp;&nbsp;&nbsp;/
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        &nbsp;&nbsp;&nbsp;/
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        &nbsp;&nbsp;&nbsp;/
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        &nbsp;&nbsp;&nbsp;/
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        &nbsp;&nbsp;&nbsp;/
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                        /
+                        <tspan>/</tspan>
+                      </textPath>
+                    </text>
+                    <text class="mandala-accent-2" dy="70" textLength="1760">
+                      <textPath textLength="1760" href="#circle2">
+                        &nbsp;&nbsp;+
+                        <tspan>+</tspan>
+                        +
+                        <tspan>+</tspan>
+                        +
+                        <tspan>+</tspan>
+                        &nbsp;&nbsp;+
+                        <tspan>+</tspan>
+                        +
+                        <tspan>+</tspan>
+                        +
+                        <tspan>+</tspan>
+                        &nbsp;&nbsp;+
+                        <tspan>+</tspan>
+                        +
+                        <tspan>+</tspan>
+                        +
+                        <tspan>+</tspan>
+                        &nbsp;&nbsp;+
+                        <tspan>+</tspan>
+                        +
+                        <tspan>+</tspan>
+                        +
+                        <tspan>+</tspan>
+                        &nbsp;&nbsp;+
+                        <tspan>+</tspan>
+                        +
+                        <tspan>+</tspan>
+                        +
+                        <tspan>+</tspan>
+                        &nbsp;&nbsp;+
+                        <tspan>+</tspan>
+                        +
+                        <tspan>+</tspan>
+                        +
+                        <tspan>+</tspan>
+                        &nbsp;&nbsp;+
+                        <tspan>+</tspan>
+                        +
+                        <tspan>+</tspan>
+                        +
+                        <tspan>+</tspan>
+                      </textPath>
+                    </text>
+                    <text class="mandala-accent-3" dy="70" textLength="1507">
+                      <textPath textLength="1507" href="#circle3">
+                        <tspan>{</tspan>
+                        {
+                        <tspan>{</tspan>
+                        {&nbsp;
+                        <tspan>}</tspan>
+                        }
+                        <tspan>}</tspan>
+                        }&nbsp;&nbsp;
+                        <tspan>{</tspan>
+                        {
+                        <tspan>{</tspan>
+                        {&nbsp;
+                        <tspan>}</tspan>
+                        }
+                        <tspan>}</tspan>
+                        }&nbsp;&nbsp;
+                        <tspan>{</tspan>
+                        {
+                        <tspan>{</tspan>
+                        {&nbsp;
+                        <tspan>}</tspan>
+                        }
+                        <tspan>}</tspan>
+                        }&nbsp;&nbsp;
+                        <tspan>{</tspan>
+                        {
+                        <tspan>{</tspan>
+                        {&nbsp;
+                        <tspan>}</tspan>
+                        }
+                        <tspan>}</tspan>
+                        }&nbsp;&nbsp;
+                        <tspan>{</tspan>
+                        {
+                        <tspan>{</tspan>
+                        {&nbsp;
+                        <tspan>}</tspan>
+                        }
+                        <tspan>}</tspan>
+                        }&nbsp;&nbsp;
+                        <tspan>{</tspan>
+                        {
+                        <tspan>{</tspan>
+                        {&nbsp;
+                        <tspan>}</tspan>
+                        }
+                        <tspan>}</tspan>
+                        }&nbsp;&nbsp;
+                      </textPath>
+                    </text>
+                    <text class="mandala-accent-4" dy="70" textLength="1257">
+                      <textPath textLength="1257" href="#circle4">
+                        &nbsp;&nbsp;&nbsp;../../ &nbsp;&nbsp;&nbsp;../../ &nbsp;&nbsp;&nbsp;../../ &nbsp;&nbsp;&nbsp;../../ &nbsp;&nbsp;&nbsp;../../
+                        &nbsp;&nbsp;&nbsp;../../ &nbsp;&nbsp;&nbsp;../../
+                      </textPath>
+                    </text>
+                    <text class="mandala-accent-5" dy="70" textLength="1005">
+                      <textPath textLength="1005" href="#circle5">
+                        <tspan>&lt;&gt;</tspan>
+                        &lt;/&gt;
+                        <tspan>&lt;&gt;</tspan>
+                        &lt;/&gt;
+                        <tspan>&lt;&gt;</tspan>
+                        &lt;/&gt;
+                        <tspan>&lt;&gt;</tspan>
+                        &lt;/&gt;
+                        <tspan>&lt;&gt;</tspan>
+                        &lt;/&gt;
+                        <tspan>&lt;&gt;</tspan>
+                        &lt;/&gt;
+                        <tspan>&lt;&gt;</tspan>
+                        &lt;/&gt;
+                        <tspan>&lt;&gt;</tspan>
+                        &lt;/&gt;
+                        <tspan>&lt;&gt;</tspan>
+                        &lt;/&gt;
+                        <tspan>&lt;&gt;</tspan>
+                        &lt;/&gt;
+                        <tspan>&lt;&gt;</tspan>
+                        &lt;/&gt;
+                        <tspan>&lt;&gt;</tspan>
+                        &lt;/&gt;
+                        <tspan>&lt;&gt;</tspan>
+                        &lt;/&gt;
+                        <tspan>&lt;&gt;</tspan>
+                        &lt;/&gt;
+                        <tspan>&lt;&gt;</tspan>
+                        &lt;/&gt;
+                        <tspan>&lt;&gt;</tspan>
+                        &lt;/&gt;
+                      </textPath>
+                    </text>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <p>TEXT</p>
+    <p>TESTEEXT</p>
+    <p>TEDEFF</p>
+
+    <script>
+      let p = document.querySelectorAll("p");
+      p.forEach((p) => {
+        p.remove();
+      });
+    </script>
+  </body>
+</html>
