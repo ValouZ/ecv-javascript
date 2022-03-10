@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background: red;
+      }
+      .move {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 50px;
+        height: 50px;
+        background-color: pink;
+        transition: 0.2s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="move"></div>
+
+    <script>
+      let r = document.querySelector(".move");
+      document.addEventListener("keydown", function (e) {
+        console.log("a");
+        let speed = 50;
+        if (e.keyCode == "38") {
+          // up arrow
+          r.style.top = r.offsetTop - 50 + "px";
+        } else if (e.keyCode == "40") {
+          // down arrow
+          r.style.top = r.offsetTop + 50 + "px";
+        } else if (e.keyCode == "37") {
+          // left arrow
+          r.style.left = r.offsetLeft - 50 + "px";
+        } else if (e.keyCode == "39") {
+          // right arrow
+          r.style.left = r.offsetLeft + 50 + "px";
+        }
+      });
+    </script>
+  </body>
+</html>

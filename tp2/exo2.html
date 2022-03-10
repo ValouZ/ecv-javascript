@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      li {
+        font-size: 30px;
+        cursor: pointer;
+        background: red;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li>Montesson</li>
+      <li>Chatou</li>
+      <li>Paris</li>
+      <li>Le Vésinet</li>
+      <li>Le Pecq</li>
+    </ul>
+
+    <script>
+      let lis = document.querySelectorAll("li");
+      let ul = document.querySelector("ul");
+      lis.forEach((li) => {
+        li.addEventListener("click", function (e) {
+          this.remove();
+          this.prepend(this);
+        });
+      });
+    </script>
+  </body>
+</html>
