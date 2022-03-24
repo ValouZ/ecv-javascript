@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function revert(str) {
+        return str.split("").reverse().join("");
+      }
+
+      function ucFirst(word) {
+        word = word.split("");
+        word[0] = word[0].toUpperCase();
+        word = word.join("");
+        return word;
+      }
+
+      function capitalize(str) {
+        str = str.split(" ");
+        str.forEach((word, i) => {
+          str[i] = ucFirst(word);
+        });
+        str = str.join(" ");
+        return str;
+      }
+
+      function pascalCase(str) {
+        return capitalize(str).replace(/\s+/g, "");
+      }
+
+      function palindrome(str) {
+        str = str
+          .toLowerCase()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .replace(/\s+/g, "");
+
+        return str == revert(str);
+      }
+
+      function findLongestWord(str) {
+        str = str.split(" ");
+        let longest = str[0];
+        str.forEach((w) => {
+          if (longest.length < w.length) longest = w;
+        });
+        return longest;
+      }
+
+      console.log("EXO 1 -", revert("SUTOM"));
+      console.log("EXO 2 -", ucFirst("valouz"));
+      console.log("EXO 3 -", capitalize("je suis gentil et patient"));
+      console.log("EXO 4 -", pascalCase("je suis gentil et patient"));
+      console.log("EXO 5 -", palindrome("la mariée ira mal"), palindrome("boubou"), palindrome("titeufuetit"));
+      console.log("EXO 6 -", findLongestWord("Le chemin le plus cours n'est pas toujours le meilleur"));
+    </script>
+  </body>
+</html>
