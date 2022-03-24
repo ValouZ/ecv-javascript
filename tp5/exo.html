@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // EXO 1
+      const getHashTags = (str) => {
+        let tabLongest = [];
+        str = str.split(" ");
+        while (tabLongest.length < 3) {
+          let longestIndex = 0;
+          let longest = str[longestIndex];
+          str.forEach((w, i) => {
+            if (longest.length < w.length) {
+              longest = w;
+              longestIndex = i;
+            }
+          });
+          str.splice(longestIndex, 1);
+          tabLongest.unshift("#" + longest.toLowerCase());
+        }
+        return tabLongest;
+      };
+      // EXO 5
+      const combinaisons = (...values) => values.reduce((previousValue, currentValue) => previousValue * currentValue, 1);
+
+      console.log("EXO 1 : getHashTags -", getHashTags("Je suis une super femme"));
+      console.log("EXO 5 : combinaisons -", combinaisons(3, 3));
+    </script>
+  </body>
+</html>
