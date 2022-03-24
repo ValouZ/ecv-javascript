@@ -34,7 +34,7 @@
       lis.forEach((li) => {
         li.addEventListener("click", function (e) {
           this.remove();
-          this.prepend(this);
+          ul.prepend(this);
         });
       });
     </script>
