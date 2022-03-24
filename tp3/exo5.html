@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        background: #444;
+        min-height: 100vh;
+        font-family: sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>WINDOW SIZE</h1>
+    <p>Width: <span id="w"></span></p>
+    <p>Height: <span id="h"></span></p>
+
+    <script>
+      showMeMySizeBrrrrr();
+      window.addEventListener("resize", () => {
+        console.log("resize");
+        showMeMySizeBrrrrr();
+      });
+
+      function showMeMySizeBrrrrr() {
+        let h = window.innerHeight;
+        let w = window.innerWidth;
+        s;
+        document.querySelector("#w").textContent = w;
+        document.querySelector("#h").textContent = h;
+      }
+    </script>
+  </body>
+</html>

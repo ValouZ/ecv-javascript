@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        background: #444;
+        min-height: 100vh;
+        font-family: sans-serif;
+      }
+
+      ol {
+        font-size: 30px;
+        color: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <ol></ol>
+
+    <script>
+      document.addEventListener("keydown", (e) => {
+        const ol = document.querySelector("ol");
+        let key = e.key;
+
+        const li = document.createElement("li");
+        li.textContent = key;
+        ol.prepend(li);
+
+        let lis = document.querySelectorAll("li");
+        if (lis.length > 20) {
+          ol.removeChild(ol.lastElementChild);
+        }
+      });
+    </script>
+  </body>
+</html>

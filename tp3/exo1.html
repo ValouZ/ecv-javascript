@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 50px;
+        height: 100vh;
+        background: #444;
+        overflow: hidden;
+      }
+      .square {
+        width: 150px;
+        height: 150px;
+        background: #000;
+      }
+
+      .red {
+        background: rgb(92, 20, 20);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="square"></div>
+    <div class="square"></div>
+    <div class="square"></div>
+
+    <script>
+      document.querySelectorAll(".square").forEach((square) => {
+        console.log(square);
+        square.addEventListener("click", function () {
+          switchBg(this);
+        });
+      });
+
+      function switchBg(el) {
+        console.log(el);
+        el.classList.toggle("red");
+      }
+    </script>
+  </body>
+</html>
