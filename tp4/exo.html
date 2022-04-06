@@ -1,62 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-  </head>
-  <body>
-    <script>
-      function revert(str) {
-        return str.split("").reverse().join("");
-      }
 
-      function ucFirst(word) {
-        word = word.split("");
-        word[0] = word[0].toUpperCase();
-        word = word.join("");
-        return word;
-      }
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
 
-      function capitalize(str) {
-        str = str.split(" ");
-        str.forEach((word, i) => {
-          str[i] = ucFirst(word);
-        });
-        str = str.join(" ");
-        return str;
-      }
+  <style>
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
 
-      function pascalCase(str) {
-        return capitalize(str).replace(/\s+/g, "");
-      }
+    body {
+      background: rgb(15, 3, 43);
+      color: whitesmoke;
+      font-family: Helvetica, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 32px;
+      height: 100vh;
+    }
 
-      function palindrome(str) {
-        str = str
-          .toLowerCase()
-          .normalize("NFD")
-          .replace(/[\u0300-\u036f]/g, "")
-          .replace(/\s+/g, "");
+    section {
+      width: 400px;
+    }
 
-        return str == revert(str);
-      }
+    p {
+      font-size: 1.5em;
+      margin-top: 8px;
+    }
+  </style>
+</head>
 
-      function findLongestWord(str) {
-        str = str.split(" ");
-        let longest = str[0];
-        str.forEach((w) => {
-          if (longest.length < w.length) longest = w;
-        });
-        return longest;
-      }
+<body>
+  <section class="e1">
+    <h1>Exo 1</h1>
+    <p></p>
+  </section>
 
-      console.log("EXO 1 : revert -", revert("SUTOM"));
-      console.log("EXO 2 : ucFirst - ", ucFirst("valouz"));
-      console.log("EXO 3 : capitalize -", capitalize("je suis gentil et patient"));
-      console.log("EXO 4 : pascalCase -", pascalCase("je suis gentil et patient"));
-      console.log("EXO 5 : palindrome -", palindrome("la mariée ira mal"), palindrome("boubou"), palindrome("titeufuetit"));
-      console.log("EXO 6 : findLongestWord -", findLongestWord("Le chemin le plus cours n'est pas toujours le meilleur"));
-    </script>
-  </body>
+  <section class="e2">
+    <h1>Exo 2</h1>
+    <p></p>
+  </section>
+
+  <section class="e3">
+    <h1>Exo 3</h1>
+    <p></p>
+  </section>
+
+  <section class="e4">
+    <h1>Exo 4</h1>
+    <p></p>
+  </section>
+
+  <section class="e5">
+    <h1>Exo 5</h1>
+    <p></p>
+  </section>
+
+  <section class="e6">
+    <h1>Exo 6</h1>
+    <p></p>
+  </section>
+
+
+  <script>
+    function revert(str) {
+      return str.split("").reverse().join("");
+    }
+
+    function ucFirst(word) {
+      word = word.split("");
+      word[0] = word[0].toUpperCase();
+      word = word.join("");
+      return word;
+    }
+
+    function capitalize(str) {
+      str = str.split(" ");
+      str.forEach((word, i) => {
+        str[i] = ucFirst(word);
+      });
+      str = str.join(" ");
+      return str;
+    }
+
+    function pascalCase(str) {
+      return capitalize(str).replace(/\s+/g, "");
+    }
+
+    function palindrome(str) {
+      str = str
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/\s+/g, "");
+
+      return str == revert(str);
+    }
+
+    function findLongestWord(str) {
+      str = str.split(" ");
+      let longest = str[0];
+      str.forEach((w) => {
+        if (longest.length < w.length) longest = w;
+      });
+      return longest;
+    }
+
+    const e1 = revert("SUTOM")
+    console.log("EXO 1 : revert -", e1);
+    document.querySelector(".e1 p").textContent = e1;
+
+    const e2 = ucFirst("valouz")
+    console.log("EXO 2 : ucFirst - ", e2);
+    document.querySelector(".e2 p").textContent = e2;
+
+    const e3 = capitalize("je suis gentil et patient")
+    console.log("EXO 3 : capitalize -", e3);
+    document.querySelector(".e3 p").textContent = e3;
+
+    const e4 = pascalCase("je suis gentil et patient")
+    console.log("EXO 4 : pascalCase -", e4);
+    document.querySelector(".e4 p").textContent = e4;
+
+    const e5 = [palindrome("kayak"), palindrome("boubou"), palindrome("titeufuetit")]
+    console.log("EXO 5 : palindrome -", e5);
+    document.querySelector(".e5 p").textContent = e5;
+
+    const e6 = findLongestWord("Le chemin le plus cours n'est pas toujours le meilleur")
+    console.log("EXO 6 : findLongestWord -", e6);
+    document.querySelector(".e6 p").textContent = e6;
+  </script>
+</body>
+
 </html>

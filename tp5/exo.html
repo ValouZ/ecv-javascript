@@ -1,126 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
 
-    <style>
-      * {
-        box-sizing: border-box;
-        padding: 0;
-        margin: 0;
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+    }
+
+    body {
+      background: rgb(15, 3, 43);
+      color: whitesmoke;
+      font-family: Helvetica, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 32px;
+      height: 100vh;
+    }
+
+    section {
+      width: 400px;
+    }
+
+    p {
+      font-size: 1.5em;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+
+<body>
+  <section class="e1">
+    <h1>Exo 1</h1>
+    <p></p>
+  </section>
+
+  <section class="e2">
+    <h1>Exo 2</h1>
+    <p></p>
+  </section>
+
+  <section class="e3">
+    <h1>Exo 3</h1>
+    <p></p>
+  </section>
+
+  <section class="e4">
+    <h1>Exo 4</h1>
+    <p></p>
+  </section>
+
+  <section class="e5">
+    <h1>Exo 5</h1>
+    <p></p>
+  </section>
+
+  <script>
+    // EXO 1
+    const getHashTags = (str) => {
+      let tabLongest = [];
+      str = str.split(" ");
+      let maxLength = str.length;
+      if (str.length > 3) {
+        maxLength = 3
       }
-      body {
-        background: rgb(15, 3, 43);
-        color: whitesmoke;
-        font-family: Helvetica, sans-serif;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        gap: 32px;
-        height: 100vh;
-      }
 
-      section {
-        width: 400px;
-      }
-
-      p {
-        font-size: 1.5em;
-        margin-top: 8px;
-      }
-    </style>
-  </head>
-  <body>
-    <section class="e1">
-      <h1>Exo 1</h1>
-      <p></p>
-    </section>
-
-    <section class="e2">
-      <h1>Exo 2</h1>
-      <p></p>
-    </section>
-
-    <section class="e3">
-      <h1>Exo 3</h1>
-      <p></p>
-    </section>
-
-    <section class="e4">
-      <h1>Exo 4</h1>
-      <p></p>
-    </section>
-
-    <section class="e5">
-      <h1>Exo 5</h1>
-      <p></p>
-    </section>
-
-    <script>
-      // EXO 1
-      const getHashTags = (str) => {
-        let tabLongest = [];
-        str = str.split(" ");
-        while (tabLongest.length < 3) {
-          let longestIndex = 0;
-          let longest = str[longestIndex];
-          str.forEach((w, i) => {
-            if (longest.length < w.length) {
-              longest = w;
-              longestIndex = i;
-            }
-          });
-          str.splice(longestIndex, 1);
-          tabLongest.unshift("#" + longest.toLowerCase());
-        }
-        return tabLongest;
-      };
-
-      // EXO 2
-      const removeDuplicate = (tab) => tab.filter((v, i) => tab.indexOf(v) === i);
-
-      // EXO 3
-      const intersection = (arr1, arr2) => arr1.filter((v) => arr2.includes(v));
-
-      // EXO 4
-      const arrayDiff = (first, second) => {
-        let diff = [];
-        first.forEach((v) => {
-          if (!second.includes(v)) diff.push(v);
+      console.log(maxLength);
+      while (tabLongest.length < maxLength) {
+        let longestIndex = 0;
+        let longest = str[longestIndex];
+        console.log(longest)
+        str.forEach((w, i) => {
+          if (longest.length < w.length) {
+            longest = w;
+            longestIndex = i;
+          }
         });
-        second.forEach((v) => {
-          if (!first.includes(v)) diff.push(v);
-        });
-        return diff;
-      };
-      // const arrayDiff = (first, second) => first.filter((v) => !second.includes(v));
+        str.splice(longestIndex, 1);
+        tabLongest.unshift("#" + longest.toLowerCase());
+      }
+      return tabLongest;
+    };
 
-      // EXO 5
-      const combinaisons = (...values) => values.reduce((previousValue, currentValue) => previousValue * currentValue, 1);
+    // EXO 2
+    const removeDuplicate = (tab) => tab.filter((v, i) => tab.indexOf(v) === i);
 
-      const e1 = getHashTags("Je suis une super femme");
-      console.log("EXO 1 : getHashTags -", e1);
-      document.querySelector(".e1 p").textContent = e1;
+    // EXO 3
+    const intersection = (arr1, arr2) => arr1.filter((v) => arr2.includes(v));
 
-      const e2 = removeDuplicate([1, 1, 1, 1, 2, 1, 1, 2, 3, 1, 3, 999, 9, 999]);
-      console.log("EXO 2 : getHashTags -", e2);
-      document.querySelector(".e2 p").textContent = e2;
+    // EXO 4
+    const arrayDiff = (first, second) => {
+      let diff = [];
+      first.forEach((v) => {
+        if (!second.includes(v)) diff.push(v);
+      });
+      second.forEach((v) => {
+        if (!first.includes(v)) diff.push(v);
+      });
+      return diff;
+    };
+    // const arrayDiff = (first, second) => first.filter((v) => !second.includes(v));
 
-      const e3 = intersection([1, 2, 3, 4, 5], [2, 3, 4, 5, 6]);
-      console.log("EXO 3 : getHashTags -", e3);
-      document.querySelector(".e3 p").textContent = e3;
+    // EXO 5
+    const combinaisons = (...values) => values.reduce((previousValue, currentValue) => previousValue * currentValue, 1);
 
-      const e4 = arrayDiff([1, 2, 3, 4, 5], [2, 3, 4, 5, 6]);
-      console.log("EXO 4 : getHashTags -", e4);
-      document.querySelector(".e4 p").textContent = e4;
+    const e1 = getHashTags("Je suis beau et j'aime les chats");
+    console.log("EXO 1 : getHashTags -", e1);
+    document.querySelector(".e1 p").textContent = e1;
 
-      const e5 = combinaisons(2, 2, 2, 2, 2, 9);
-      console.log("EXO 5 : combinaisons -", e5);
-      document.querySelector(".e5 p").textContent = e5;
-    </script>
-  </body>
+    const e2 = removeDuplicate([1, 1, 1, 1, 2, 1, 1, 2, 3, 1, 3, 999, 9, 999]);
+    console.log("EXO 2 : removeDuplicate -", e2);
+    document.querySelector(".e2 p").textContent = e2;
+
+    const e3 = intersection([1, 2, 3, 4, 5], [2, 3, 4, 5, 6]);
+    console.log("EXO 3 : intersection -", e3);
+    document.querySelector(".e3 p").textContent = e3;
+
+    const e4 = arrayDiff([1, 2, 3, 4, 5], [2, 3, 4, 5, 6]);
+    console.log("EXO 4 : arrayDiff -", e4);
+    document.querySelector(".e4 p").textContent = e4;
+
+    const e5 = combinaisons(2, 2, 2, 2, 2, 9);
+    console.log("EXO 5 : combinaisons -", e5);
+    document.querySelector(".e5 p").textContent = e5;
+  </script>
+</body>
+
 </html>
