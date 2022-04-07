@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <script>
+
+    const o1 = {
+      name: 'John',
+      surname: 'Edabit',
+      gender: 'M',
+      dob: "1/1/1990"
+    };
+
+    const o2 = {
+      name: 'Helen',
+      surname: 'Yu',
+      gender: 'F',
+      dob: "1/12/1950"
+    }
+
+    const o3 = {
+      name: 'MickeyP',
+      surname: 'Mouse',
+      gender: 'M',
+      dob: "16/1/1928"
+    }
+
+    fiscalCode(o1)
+    fiscalCode(o2)
+    fiscalCode(o3)
+
+    function fiscalCode(obj) {
+      let fiscalCode = ''
+      fiscalCode += formatSurname(obj.surname)
+      fiscalCode += formatName(obj.name)
+      fiscalCode += formatGenderAndDate(obj.gender, obj.dob)
+      console.log(fiscalCode)
+    }
+
+    function formatSurname(surname) {
+      if (surname.length < 3) {
+        while (surname.length < 3) {
+          surname += 'X'
+        }
+      } else {
+        surname = sortLetters(surname)
+          .splice(0, 3)
+          .join('')
+      }
+      return surname.toUpperCase()
+    }
+
+    function formatName(name) {
+      let tabVowel
+      let tabConsonant
+      name = sortLetters(name)
+      tabVowel = name.filter(letter => isVowel(letter))
+      tabConsonant = name.filter(letter => !isVowel(letter))
+
+      if (tabConsonant.length == 3) {
+        return tabConsonant.join('').toUpperCase()
+      } else if (tabConsonant.length >= 3) {
+        return (tabConsonant[0] + tabConsonant[2] + tabConsonant[3]).toUpperCase()
+      } else {
+        let i = 0
+        while (tabConsonant.length < 3) {
+          console.log(i)
+          tabConsonant.push(tabVowel[i++] || 'x')
+        }
+        return tabConsonant.join('').toUpperCase()
+      }
+    }
+
+    function formatGenderAndDate(gender, date) {
+      let result = ''
+      date = date.split('/')
+      result += date[2].slice(2)
+      result += getMonthCode(date[1])
+      result += formatGenderWithDayBirth(gender, date[0])
+      return result
+    }
+
+    function formatGenderWithDayBirth(gender, day) {
+      if (gender === 'M') {
+        if (parseInt(day) < 10) {
+          return 0 + day
+        } else return day
+      } else {
+        return parseInt(day) + 40
+      }
+    }
+
+    function getMonthCode(month) {
+      const monthLetter = 'ABCDEHLMPRST'
+      return monthLetter[month - 1]
+    }
+
+    function sortLetters(str) {
+      return str
+        .toLowerCase()
+        .split('')
+        .sort((a, b) => {
+          if (isVowel(a) && !isVowel(b)) return 1
+          else if (!isVowel(a) && isVowel(b)) return -1
+          else return 0
+        })
+    }
+
+    function isVowel(letter) {
+      return letter == 'a' ||
+        letter == 'e' ||
+        letter == 'i' ||
+        letter == 'o' ||
+        letter == 'u'
+    }
+
+
+  </script>
+</body>
+
+</html>
