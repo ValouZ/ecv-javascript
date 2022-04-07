@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    function prop_access(object, path = "") {
+      let tempObject = { ...object };
+      path = path.split('.')
+      for (let i = 0; i < path.length; i++) {
+        if (tempObject[path[i]] === undefined) {
+          return path.join('.') + ' not found'
+        }
+        tempObject = tempObject[path[i]]
+      }
+
+      return tempObject
+    }
+
+    console.log(prop_access({
+      "animal": {
+        "type": {
+          "name": "dog"
+        }
+      }
+    },
+      "animal.type.name")); // dog
+
+    console.log(prop_access({
+      "animal":
+      {
+        "type": {
+          "name": "dog"
+        }
+      }
+    }, "animal.type"
+    )); // { name: "dog" }
+
+    console.log(prop_access({
+      "animals": [
+        {
+          "type": {
+            "name": "dog"
+          }
+        },
+        {
+          "type": {
+            "name": "cat"
+          }
+        }
+      ]
+    }, "animals.1.type"
+    )); // { name: "cat" }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../tp6/style.css">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <script>
+
+    // Exo 1 : Créez une fonction qui prend en paramètre une chaîne de caractère, si la chaîne de caractère fait plus de 20
+    // caractères, la promesse échoue, sinon la fonction renvoie true
+    function isUnder20Charac(str) {
+      return new Promise((resolve, reject) => {
+        if (str.length < 20) {
+          resolve(true)
+        }
+        reject('La phrase fait plus de 20 charac')
+      })
+    }
+
+    // Exo 2 : Créez une fonction qui prend en paramètre deux int, si la première variable est supérieure à la seconde, la
+    // promesse renvoie la différence entre les deux variables, sinon elle échoue.
+    function isGreater(a, b) {
+      return new Promise((resolve, reject) => {
+        if (a > b) {
+          resolve(a - b)
+        }
+        reject('La première variable est inférieure à la deuxième')
+      })
+    }
+
+    // Exo 3 : Créez une fonction qui prend en paramètre une date de naissance d’une personne au format DD/MM/YYYY. Si la
+    // personne est mineure, la promesse échoue, sinon elle renvoie true
+    function isMinor(date) {
+      return new Promise((resolve, reject) => {
+        let dateArray = date.split('/')
+        let dateOfBirth = new Date(dateArray[2], dateArray[1] - 1, dateArray[0])
+        let today = new Date()
+        let age = Math.abs(today - dateOfBirth) / 31536000000 // 1 an = 31536000000 ms
+        if (age < 18) {
+          reject('La personne est mineur')
+        }
+        resolve(true)
+      })
+    }
+
+    let s = "Bonjour je suis "
+    // Exo 1
+    isUnder20Charac(s).then(res => console.log(res)).catch(err => console.warn(err))
+    // Exo 2
+    isGreater(10, 5).then(res => console.log(res)).catch(err => console.warn(err))
+    // Exo 3
+    isMinor('13/01/2000').then(res => console.log(res)).catch(err => console.warn(err))
+
+    async function execute1() {
+      try {
+        console.log('EXO 1 TRY CATCH :', await isUnder20Charac('Bonjour Je suis valentin'))
+      } catch (err) {
+        console.log(err)
+      }
+    }
+
+    async function execute2() {
+      try {
+        console.log('EXO 2 TRY CATCH :', await isGreater(5, 10))
+      } catch (err) {
+        console.log(err)
+      }
+    }
+
+    async function execute3() {
+      try {
+        console.log('EXO 3 TRY CATCH :', await isMinor('13/01/2010'))
+      } catch (err) {
+        console.log(err)
+      }
+    }
+
+    execute1()
+    execute2()
+    execute3()
+
+  </script>
+</body>
+
+</html>
