@@ -21,7 +21,7 @@
         if (str.length < 20) {
           resolve(true)
         }
-        reject('La phrase fait plus de 20 charac')
+        reject('La phrase fait 20 caractères ou plus')
       })
     }
 
@@ -45,47 +45,102 @@
         let today = new Date()
         let age = Math.abs(today - dateOfBirth) / 31536000000 // 1 an = 31536000000 ms
         if (age < 18) {
-          reject('La personne est mineur')
+          reject('La personne est mineure')
         }
         resolve(true)
       })
     }
 
-    let s = "Bonjour je suis "
-    // Exo 1
-    isUnder20Charac(s).then(res => console.log(res)).catch(err => console.warn(err))
-    // Exo 2
-    isGreater(10, 5).then(res => console.log(res)).catch(err => console.warn(err))
-    // Exo 3
-    isMinor('13/01/2000').then(res => console.log(res)).catch(err => console.warn(err))
+    // EXO 4
+    isUnder20Charac("Bonjour je suis").then(res => console.log(`EXO 1 THEN CATCH : ${res}`)).catch(err => console.warn(`EXO 1 THEN CATCH : ${err}`))
+    isGreater(10, 5).then(res => console.log(`EXO 2 THEN CATCH : ${res}`)).catch(err => console.warn(`EXO 2 THEN CATCH : ${err}`))
+    isMinor('13/01/2005').then(res => console.log(`EXO 3 THEN CATCH : ${res}`)).catch(err => console.warn(`EXO 3 THEN CATCH : ${err}`))
 
+
+    // EXO 5
     async function execute1() {
       try {
-        console.log('EXO 1 TRY CATCH :', await isUnder20Charac('Bonjour Je suis valentin'))
+        console.log(`EXO 1 TRY CATCH : ${await isUnder20Charac('Bonjour Je suis valentin')}`)
       } catch (err) {
-        console.log(err)
+        console.warn(`EXO 1 TRY CATCH : ${err}`)
       }
     }
 
     async function execute2() {
       try {
-        console.log('EXO 2 TRY CATCH :', await isGreater(5, 10))
+        console.log(`EXO 2 TRY CATCH : ${await isGreater(5, 12)}`)
       } catch (err) {
-        console.log(err)
+        console.warn(`EXO 2 TRY CATCH : ${err}`)
       }
     }
 
     async function execute3() {
       try {
-        console.log('EXO 3 TRY CATCH :', await isMinor('13/01/2010'))
+        console.log(`EXO 3 TRY CATCH : ${await isMinor('13/01/2000')}`)
       } catch (err) {
-        console.log(err)
+        console.warn(`EXO 3 TRY CATCH : ${err}`)
       }
     }
 
     execute1()
     execute2()
     execute3()
+
+    // EXO 6 : Avec fetch et https://swapi.dev/, recupérer la liste de tous les caractères, vaisseaux et planète et affichez les dans
+    // une liste. Vous devez utilisez des promesses, async / await & des try catch.
+
+    async function getCharacters() {
+      const r = await fetch('https://swapi.dev/api/people/')
+      const data = await r.json()
+      return data
+    }
+
+    async function getPlanets() {
+      const r = await fetch('https://swapi.dev/api/planets/')
+      const data = await r.json()
+      return data
+    }
+
+    async function getStarships() {
+      const r = await fetch('https://swapi.dev/api/starships/')
+      const data = await r.json()
+      return data
+    }
+
+    function displayList(r) {
+      let list = document.createElement('ul')
+      r.forEach(character => {
+        let li = document.createElement('li')
+        li.innerHTML = character.name
+        list.appendChild(li)
+      })
+      document.body.appendChild(list)
+    }
+
+    // getCharacters().then(res => displayList(res.results))
+    // getPlanets().then(res => displayList(res.results))
+    // getStarships().then(res => displayList(res.results))
+
+    async function execute6() {
+      try {
+        const characters = await getCharacters()
+        const planets = await getPlanets()
+        const starships = await getStarships()
+        displayList(characters.results)
+        displayList(planets.results)
+        displayList(starships.results)
+      } catch (err) {
+        console.warn(`EXO 6 TRY CATCH : ${err}`)
+      }
+    }
+
+    execute6()
+
+
+
+
+
+
 
   </script>
 </body>
